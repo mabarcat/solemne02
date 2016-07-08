@@ -18,7 +18,7 @@ class Category(models.Model):
 class Product(models.Model):
     sku = models.CharField(max_length=100,unique=True)
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(max_length=300)
     price = models.DecimalField(max_digits=11, decimal_places=2)
     trademark = models.CharField(max_length=100)
     category = models.ForeignKey(Category)
