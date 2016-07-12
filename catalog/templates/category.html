@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load thumbnail %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +10,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="image/favicon.ico">
+    <link rel="icon" href="{% static 'image/favicon.ico' %}">
 
     <title>E-Commerce</title>
 
@@ -99,15 +101,17 @@
               <div class="col-sm-4">
                   <div class="col-item">
                       <div class="photo">
-                          <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                           <div class="photo">
+                          {% thumbnail product.image "350x260" crop="center" as im %}
+                              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="img-responsive" alt="{{product.name}}" >
+                          {% endthumbnail %} 
+                      </div> 
                       </div>
                       <div class="info">
                           <div class="row">
                               <div class="price col-md-6">
-                                  <h5>
-                                      Sample Product</h5>
-                                  <h5 class="price-text-color">
-                                      $199.99</h5>
+                                  <h5>{{product.name}}</h5>
+                                  <h5 class="price-text-color">{{product.price}}</h5>
                               </div>
                               <div class="rating hidden-sm col-md-6">
                                   <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -125,11 +129,10 @@
                           </div>
                       </div>
                   </div>
-                  {% endfor %}
-              </div>  
-
-        </div>
-      </div>
+              </div>
+            {% endfor %}
+          </div>  
+       </div>
 
       <!-- Site footer -->
       <footer class="footer">
