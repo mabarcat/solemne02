@@ -35,18 +35,19 @@
         <h3 class="text-muted">Solemne_2</h3>
         <nav>
         <ul class="nav nav-justified">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Autos</a></li>
-            <li><a href="#">Todo Terreno</a></li>
-            <li><a href="#">Camionetas</a></li>
-            <li><a href="#">Motos</a></li>
+            <li class="active"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'index' %}category/3">Autos</a></li>
+            <li><a href="{% url 'index' %}category/4">Deportivos</a></li>
+            <li><a href="{% url 'index' %}category/6">Todo Terreno</a></li>
+            <li><a href="{% url 'index' %}category/7">Camionetas</a></li>
+            <li><a href="{% url 'index' %}category/8">Motos</a></li>
            </ul>
         </nav>
       </div>
 
       <!-- Jumbotron -->
       <div class="jumbotron">
-        <h2>Nuevos Modelos</h2>
+        <h2>Nuevos Modelos por Mauricio Abarca T.</h2>
       </div>
 
  <div class="container-fluid">
