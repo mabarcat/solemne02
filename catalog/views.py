@@ -4,8 +4,9 @@ from catalog.models import Category, Product, Trademark
 
 
 
-def view_index(request):
-	pass
+def index(request):
+	return render(request, 'index.html', {})
+
 
 def category(request,category_id):
 
